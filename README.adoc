@@ -1,0 +1,35 @@
+= red-shirt
+Ciaran Downey <code@ciarand.me>
+
+== What?
+
+This is basically just for me at the moment. It's experiments with using Packer
+and Salt to build FreeBSD images on DigitalOcean.
+
+== TODO
+
+=== Short-term
+
+- Firewall rules
+- Health monitoring
+- Process monitoring
+- Log rotation
+- Enable gzip (compile Nginx from source)
+- Multisite support
+- SSL (with good grades)
+
+=== Long-term
+
+- Mail server
+- Daily status reports
+- Metrics n graphs
+- Formulas for easily adding sites / apps
+
+== License
+
+ISC, see the link:LICENSE[LICENSE] file.
+
+== Packer issues / quirks
+
+- https://github.com/mitchellh/packer/issues/1702
+- https://github.com/mitchellh/packer/issues/2339

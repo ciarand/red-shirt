@@ -1,0 +1,29 @@
+{
+  "variables": {
+    "digitalocean_pat": "{{env `DIGITAL_OCEAN_API_TOKEN`}}"
+  },
+  "builders": [{
+    "type": "digitalocean",
+    "api_token": "{{user `digitalocean_pat`}}",
+    "region": "sfo1",
+    "size": "2gb",
+    "ssh_username": "freebsd",
+    "image": "freebsd-10-1-x64",
+    "droplet_name": "redshirt",
+    "snapshot_name": "redshirt--{{timestamp}}"
+  }],
+  "provisioners": [{
+      "type": "shell",
+      "execute_command": "chmod +x {{.Path}}; env {{.Vars}} {{.Path}}",
+      "inline": [
+          "sudo pkg install -y py27-salt-2015.5.2",
+          "sudo mkdir -p /srv /usr/local/etc/salt/states",
+          "sudo ln -s /usr/local/etc/salt /etc/salt",
+          "sudo ln -s /usr/local/etc/salt /srv/salt"
+      ]
+  }, {
+      "type": "salt-masterless",
+      "skip_bootstrap": true,
+      "local_state_tree": "{{template_dir}}/salt"
+  }]
+}

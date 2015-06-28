@@ -1,0 +1,33 @@
+Port 22
+AddressFamily any
+ListenAddress 0.0.0.0
+ListenAddress ::
+
+Protocol 2
+
+SyslogFacility AUTH
+LogLevel INFO
+
+# Authentication:
+StrictModes yes
+MaxAuthTries 3
+
+RSAAuthentication yes
+PubkeyAuthentication yes
+
+# The default is to check both .ssh/authorized_keys and
+# .ssh/authorized_keys2
+AuthorizedKeysFile .ssh/authorized_keys
+
+# stop passwords
+PasswordAuthentication no
+PermitEmptyPasswords no
+ChallengeResponseAuthentication no
+# pam is ok without passwords
+UsePAM yes
+
+# override default of no subsystems
+Subsystem       sftp    /usr/libexec/sftp-server
+
+# turn off root login
+PermitRootLogin no
