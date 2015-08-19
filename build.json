@@ -6,7 +6,7 @@
     "type": "digitalocean",
     "api_token": "{{user `digitalocean_pat`}}",
     "region": "sfo1",
-    "size": "2gb",
+    "size": "512mb",
     "ssh_username": "freebsd",
     "image": "freebsd-10-1-x64",
     "droplet_name": "redshirt",
