@@ -16,7 +16,7 @@
       "type": "shell",
       "execute_command": "chmod +x {{.Path}}; env {{.Vars}} {{.Path}}",
       "inline": [
-          "sudo pkg install -y py27-salt-2015.5.2",
+          "sudo pkg install -y py27-salt-2015.5.3",
           "sudo mkdir -p /srv /usr/local/etc/salt/states",
           "sudo ln -s /usr/local/etc/salt /etc/salt",
           "sudo ln -s /usr/local/etc/salt /srv/salt"
