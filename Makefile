@@ -1,6 +1,6 @@
 .PHONY: build
 build:
-	packer build build.json
+	DIGITAL_OCEAN_API_TOKEN=$${DIGITAL_OCEAN_API_TOKEN:?} packer build build.json
 
 .PHONY: debug
 debug:
